@@ -4,13 +4,6 @@ import { motion } from 'framer-motion';
 export const Experience = () => {
   const experiences = [
     {
-      role: 'Subject Matter Expert',
-      company: 'Chegg India',
-      duration: 'Nov 2022 - Mar 2023',
-      description: 'Mentored and solved complex problems in academic subjects, ensuring subject accuracy and maintaining a high quality standard for educational materials.',
-      icon: <Briefcase className="h-5 w-5" strokeWidth={2.5} />
-    },
-    {
       role: 'Co-Head Web Developer',
       company: 'Technika\'26 (Official Tech Fest)',
       duration: 'Present',
@@ -19,6 +12,13 @@ export const Experience = () => {
     },
     {
       role: 'Co-Head Web Developer',
+      company: 'Prakrida\'26',
+      duration: 'Present',
+      description: 'Developed and managed the official website for Prakrida\'26, enhancing user experience through modern UI/UX and seamless performance as the sole web developer.',
+      icon: <Users className="h-5 w-5" strokeWidth={2.5} />
+    },
+    {
+      role: 'Co Web-Dev',
       company: 'IEEE Student Branch',
       duration: 'Present',
       description: 'Leading the Web Development team to build and maintain the official platform for IEEE BIT Mesra Student Branch, ensuring robust architecture and seamless user experience.',
@@ -28,7 +28,8 @@ export const Experience = () => {
 
   const clubs = [
     { name: "IGNITE Club", role: "Member", desc: "Active participation in coding and technical events." },
-    { name: "DIVYA BITP", role: "Member", desc: "Participated in operations and events." }
+    { name: "DIVYA BITP", role: "Member", desc: "Participated in operations and events." },
+    { name: "IEEE Club", role: "Co Web-Dev", desc: "Active participant in technical activities and events." }
   ];
 
   return (
@@ -120,7 +121,7 @@ export const Experience = () => {
           className="mt-20 border-t-[3px] border-dashed border-pencil/20 pt-10"
         >
           <div className="inline-block tack-decoration bg-paper-muted px-4 mb-8 rotate-1">
-            <h3 className="font-kalam text-2xl font-bold text-pencil">🌟 Memberships</h3>
+            <h3 className="font-kalam text-2xl font-bold text-pencil">🌟 Clubs and Memberships</h3>
           </div>
           
           <div className="grid md:grid-cols-2 gap-6">

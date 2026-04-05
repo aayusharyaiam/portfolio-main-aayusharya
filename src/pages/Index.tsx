@@ -4,12 +4,35 @@ import { About } from '@/components/About';
 import { Projects } from '@/components/Projects';
 import { Skills } from '@/components/Skills';
 import { Experience } from '@/components/Experience';
+import { Highlights } from '@/components/Highlights';
 import { Contact } from '@/components/Contact';
-import { Github, Linkedin, Code, Heart } from 'lucide-react';
+import { Github, Linkedin, Code, Heart, ArrowUp } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Index = () => {
+  const [showTopBtn, setShowTopBtn] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 400) {
+        setShowTopBtn(true);
+      } else {
+        setShowTopBtn(false);
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
   return (
-    <div className="min-h-screen bg-paper" style={{ backgroundImage: 'radial-gradient(#e5e0d8 1px, transparent 1px)', backgroundSize: '24px 24px' }}>
+    <div className="min-h-screen bg-paper overflow-x-hidden w-full flex flex-col" style={{ backgroundImage: 'radial-gradient(#e5e0d8 1px, transparent 1px)', backgroundSize: '24px 24px' }}>
       <Navigation />
       
       <main>
@@ -20,6 +43,7 @@ const Index = () => {
         <Projects />
         <Skills />
         <Experience />
+        <Highlights />
         <Contact />
       </main>
       
@@ -82,6 +106,22 @@ const Index = () => {
           </div>
         </div>
       </footer>
+      {/* Back to Top */}
+      <AnimatePresence>
+        {showTopBtn && (
+          <motion.button
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 20 }}
+            onClick={scrollToTop}
+            className="fixed bottom-8 right-8 z-50 p-3 bg-marker-red text-white border-[3px] border-pencil shadow-[4px_4px_0px_0px_#2d2d2d] hover:shadow-[2px_2px_0px_0px_#2d2d2d] hover:-translate-y-1 transition-all"
+            style={{ borderRadius: '255px 15px 225px 15px / 15px 225px 15px 255px' }}
+            aria-label="Back to top"
+          >
+            <ArrowUp className="w-6 h-6" strokeWidth={2.5} />
+          </motion.button>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

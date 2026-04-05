@@ -9,7 +9,8 @@ export const Projects = () => {
       tags: ["React", "TailwindCSS", "JavaScript", "GSAP"],
       role: "Co-Head Web Developer",
       tagline: "Official Tech Fest Website",
-      category: "UI/UX + Scalability"
+      category: "UI/UX + Scalability",
+      repo: "https://github.com/aayusharyaiam/technikna_2K25"
     },
     {
       title: "Prakrida'26",
@@ -17,7 +18,8 @@ export const Projects = () => {
       tags: ["React", "Node.js", "Express", "TailwindCSS"],
       role: "Co-Head Web Developer",
       tagline: "Official Sports Fest Website",
-      category: "Full Stack"
+      category: "Full Stack",
+      repo: "https://github.com/ShiftainAhmad/Prakida_Demon"
     },
     {
       title: "IEEE Student Branch",
@@ -25,7 +27,8 @@ export const Projects = () => {
       tags: ["React", "Firebase", "TailwindCSS"],
       role: "Co-Head Web Developer",
       tagline: "Student Chapter Platform",
-      category: "Community"
+      category: "Community",
+      repo: "https://github.com/aayusharyaiam/IEEE-web"
     },
     {
       title: "Bharti AI",
@@ -135,13 +138,22 @@ export const Projects = () => {
                   <ExternalLink className="h-4 w-4 group-hover:scale-125 transition-transform" strokeWidth={2.5} />
                   Live Demo
                 </a>
-                <a
-                  href="#"
-                  className="flex items-center gap-2 font-hand font-bold hover:text-pen-blue text-pencil transition-colors group"
-                >
-                  <Github className="h-4 w-4 group-hover:scale-125 transition-transform" strokeWidth={2.5} />
-                  Source
-                </a>
+                {project.repo ? (
+                  <a
+                    href={project.repo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 font-hand font-bold hover:text-pen-blue text-pencil transition-colors group"
+                  >
+                    <Github className="h-4 w-4 group-hover:scale-125 transition-transform" strokeWidth={2.5} />
+                    Source
+                  </a>
+                ) : (
+                  <span className="flex items-center gap-2 font-hand font-bold text-pencil/50 group cursor-not-allowed">
+                    <Github className="h-4 w-4" strokeWidth={2.5} />
+                    Source (Private)
+                  </span>
+                )}
               </div>
             </motion.div>
           ))}

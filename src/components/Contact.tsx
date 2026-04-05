@@ -120,7 +120,7 @@ export const Contact = () => {
                       name="name"
                       required
                       placeholder="e.g. John Doe"
-                      className="input-sketchy"
+                      className="sketchy-input"
                     />
                   </div>
                   <div className="space-y-2">
@@ -133,7 +133,7 @@ export const Contact = () => {
                       name="email"
                       required
                       placeholder="e.g. john@example.com"
-                      className="input-sketchy"
+                      className="sketchy-input"
                     />
                   </div>
                 </div>
@@ -148,7 +148,7 @@ export const Contact = () => {
                     required
                     rows={5}
                     placeholder="Write your message here..."
-                    className="input-sketchy resize-none"
+                    className="sketchy-input resize-none"
                   ></textarea>
                 </div>
 

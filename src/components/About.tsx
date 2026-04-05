@@ -1,6 +1,39 @@
 import { MapPin, Calendar, GraduationCap, Mail, Phone, Download } from 'lucide-react';
 import resume from '@/assets/AayushArya_Resume.pdf';
-import { motion } from 'framer-motion';
+import { motion, useInView, useMotionValue, useSpring } from 'framer-motion';
+import { useEffect, useRef } from 'react';
+
+const AnimatedCounter = ({ value }: { value: string }) => {
+  const ref = useRef<HTMLSpanElement>(null);
+  const inView = useInView(ref, { once: true, margin: "-50px" });
+  
+  const match = value.match(/(\d+)(.*)/);
+  const targetNumber = match ? parseInt(match[1], 10) : 0;
+  const suffix = match ? match[2] : '';
+  
+  const motionValue = useMotionValue(0);
+  const springValue = useSpring(motionValue, {
+    damping: 30,
+    stiffness: 100,
+  });
+
+  useEffect(() => {
+    if (inView) {
+      motionValue.set(targetNumber);
+    }
+  }, [inView, motionValue, targetNumber]);
+
+  useEffect(() => {
+    const unsubscribe = springValue.on("change", (latest) => {
+      if (ref.current) {
+        ref.current.textContent = Math.round(latest) + suffix;
+      }
+    });
+    return () => unsubscribe();
+  }, [springValue, suffix]);
+
+  return <span ref={ref}>0{suffix}</span>;
+};
 
 export const About = () => {
   const stats = [
@@ -158,7 +191,9 @@ export const About = () => {
               className="organic-stat mx-auto"
               style={{ borderRadius: stat.radius }}
             >
-              <span className="text-2xl md:text-3xl font-kalam font-bold text-marker-red">{stat.value}</span>
+              <span className="text-2xl md:text-3xl font-kalam font-bold text-marker-red">
+                <AnimatedCounter value={stat.value} />
+              </span>
               <span className="font-hand text-xs md:text-sm text-pencil/60 text-center px-2">{stat.label}</span>
             </motion.div>
           ))}
