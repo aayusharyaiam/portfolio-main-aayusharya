@@ -1,4 +1,4 @@
-import { Code2, Database, Layout, Server, DatabaseZap } from 'lucide-react';
+import { Code2, Database, Layout, Server, DatabaseZap, GraduationCap } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export const Skills = () => {
