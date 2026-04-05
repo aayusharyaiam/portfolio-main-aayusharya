@@ -1,7 +1,6 @@
 # 🧑‍💻 Aayush Arya — Portfolio Website
 
-Welcome to the official repository for my personal developer portfolio!  
-This website showcases my **projects**, **skills**, **experience**, and includes integrations with **Golang backend**, **MongoDB**, and **MySQL** for a dynamic and full-stack experience.
+A playfully designed, hand-drawn/sketchy themed personal portfolio showcasing my **projects**, **skills**, and **experience** as a Full Stack Developer. The entire design system is built with React, Tailwind CSS, and Framer Motion to create engaging, dynamic interactions.
 
 ---
 
@@ -14,48 +13,61 @@ This website showcases my **projects**, **skills**, **experience**, and includes
 
 ---
 
-## 🚀 Features
+## 🎨 Design System: Sketchy & Hand-Drawn
 
-- ⚡ **Modern UI** with ReactJS + Tailwind CSS  
-- 🔐 **Backend** using Go (Golang) with REST API  
-- 💾 **MongoDB** for form submissions & blog (optional)  
-- 🗃️ **MySQL** for structured content like skills, projects, and achievements  
-- 📥 Downloadable Resume  
-- 📬 Contact form with database storage  
-- 🔎 Responsive and SEO-friendly
-- 
----
+The website features a unique "paper and pencil" aesthetic:
+- **Warm Paper Textures:** Utilizing a dot grid `#fdfbf7` backdrop.
+- **Wobbly Borders & Hard Shadows:** Custom CSS shapes overriding standard Tailwind radii.
+- **Handwritten Typography:** Utilizing `Kalam` and `Patrick Hand` Google fonts.
+- **Decorative SVGs:** Sticky labels, Post-it notes, tape strips, and speech bubbles.
 
-## 🧩 Sections
+### Visual Preview
 
-- **Home** – Hero introduction with call to action  
-- **About Me** – Education, career goals, and resume  
-- **Projects** – Showcasing work like:
-  - [Lifeer App](https://lifeer-app.vercel.app/) – Full-stack productivity dashboard  
-  - Technika’24 Frontend  
-  - [IMPACT'25](https://impact2025.bitmesra.ac.in/) Conference Website  
-- **Skills** – Frontend, Backend, DBs, Tools  
-- **Experience** – Chegg India and internships  
-- **LeetCode & GitHub Stats** – CP Profile and GitHub activity  
-- **Contact** – Form with MongoDB backend & social links
+<br>
+<div align="center">
+  <img src="public/screenshots/hero.png" alt="Hero Section Preview" width="800"/>
+  <p><em>Hero Section with SVG Sketch Animations and Parallax Context</em></p>
+</div>
+<br>
+<div align="center">
+  <img src="public/screenshots/projects.png" alt="Projects Section Preview" width="800"/>
+  <p><em>Wobbly Project Cards and Rotated Decorative Callouts</em></p>
+</div>
+<br>
 
 ---
 
-## 🛠️ Tech Stack
+## 🚀 Key Features
 
-### 🔹 Frontend
-- React.js
-- Tailwind CSS
-- Axios / Fetch API
+- ⚡ **Interactive UI:** Powered by React + Vite.
+- 🎬 **Animations:** Path drawing, parallax layers, and scroll-triggers implemented with `framer-motion`.
+- 📱 **Responsive Design:** Fluidly adapts from mobile viewports to ultra-wide displays.
+- 📥 **Resume Integration:** Immediate downloadable PDF of latest experiences.
+- 📬 **Serverless Contact Form:** End-to-end mailing hooked into `formsubmit.co` without complex backend requirements.
 
-### 🔹 Backend
-- Go (Golang) – REST APIs using `Gin` or `Fiber`
-- Firebase Authentication (for Lifeer App)
-- Node.js
+---
 
-### 🔹 Database
-- MongoDB Atlas – Unstructured data (form, blogs)
-- MySQL (PlanetScale / Railway) – Structured data (skills, projects)
+## 🧩 Sections Included
+
+- **Home** – Dynamic hero with "drawing" animations and a quick career pitch.
+- **About Me** – Education timeline and statistics on Post-it widgets.
+- **Projects** – Comprehensive highlight spanning Web/Full Stack applications:
+  - *Technika'26* (Official Tech Fest Website)
+  - *Prakrida'26* & *IEEE Student Branch* Portals
+  - *Bharti AI* (Gen AI text, code, audio synthesis platform)
+  - *Lifeer* & *IMPACT'25*
+- **Skills** – Stack breakdown (Go, MongoDB, MySQL, C++, React) and earned Certifications.
+- **Experience** – Outlining leadership execution as *Co-Head Web Developer* in several institutions.
+- **Contact** – Reachable interactive forms and social media.
+
+---
+
+## 🛠️ Stack & Dependencies
+
+- **Framework:** `React 18` and `Vite`
+- **Styling:** `Tailwind CSS 3` (Custom configuration for "wobbly" organic shapes)
+- **Icons & Graphics:** `lucide-react`
+- **Animations:** `framer-motion` (for scroll-triggers, bounce effects, and `pathLength` SVG manipulation).
 
 ---
 
@@ -67,11 +79,11 @@ git clone https://github.com/AayushArya28/portfolio-website.git
 cd portfolio-website
 
 # Install frontend dependencies
-cd client
 npm install
+
+# Start the Vite development server
 npm run dev
 
-# Setup backend
-cd ../server
-go mod tidy
-go run main.go
+# Build for production
+npm run build
+```

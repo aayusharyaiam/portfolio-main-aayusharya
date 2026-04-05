@@ -2,111 +2,44 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Professional Portfolio Design System - All colors MUST be HSL. */
+/* Hand-Drawn Portfolio Design System */
 
 @layer base {
   :root {
-    /* Core Colors */
-    --background: 220 20% 14%;
-    --foreground: 210 40% 98%;
+    --background: 40 33% 98%;
+    --foreground: 0 0% 18%;
 
-    --card: 220 20% 16%;
-    --card-foreground: 210 40% 98%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 18%;
 
-    --popover: 220 20% 16%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 18%;
 
-    /* Primary Brand Colors - Tech Blue */
-    --primary: 217 91% 60%;
-    --primary-foreground: 210 40% 98%;
-    --primary-hover: 217 91% 55%;
-    --primary-glow: 217 91% 70%;
+    --primary: 0 100% 65%;
+    --primary-foreground: 0 0% 100%;
 
-    /* Secondary Colors - Purple Accent */
-    --secondary: 260 60% 20%;
-    --secondary-foreground: 210 40% 98%;
-    --secondary-hover: 260 60% 25%;
+    --secondary: 215 55% 40%;
+    --secondary-foreground: 0 0% 100%;
 
-    /* Muted Colors */
-    --muted: 220 20% 18%;
-    --muted-foreground: 220 13% 69%;
+    --muted: 30 15% 88%;
+    --muted-foreground: 25 6% 39%;
 
-    /* Accent Colors - Gradient Support */
-    --accent: 217 91% 60%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 52 100% 88%;
+    --accent-foreground: 0 0% 18%;
 
-    /* Status Colors */
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 210 40% 98%;
-    --success: 142 76% 36%;
-    --success-foreground: 210 40% 98%;
-    --warning: 38 92% 50%;
-    --warning-foreground: 222 84% 5%;
+    --destructive: 0 100% 65%;
+    --destructive-foreground: 0 0% 100%;
 
-    /* UI Elements */
-    --border: 220 20% 22%;
-    --input: 220 20% 18%;
-    --ring: 217 91% 60%;
-
-    /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(217 91% 60%), hsl(260 60% 55%));
-    --gradient-secondary: linear-gradient(135deg, hsl(260 60% 20%), hsl(217 91% 60%));
-    --gradient-hero: linear-gradient(135deg, hsl(220 20% 14%), hsl(217 91% 10%));
-    --gradient-card: linear-gradient(135deg, hsl(220 20% 16%), hsl(220 20% 18%));
-
-    /* Shadows */
-    --shadow-primary: 0 10px 30px -10px hsl(217 91% 60% / 0.3);
-    --shadow-card: 0 4px 20px -4px hsl(220 20% 10% / 0.4);
-    --shadow-glow: 0 0 40px hsl(217 91% 60% / 0.2);
-
-    /* Animations */
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-bounce: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    --border: 0 0% 18%;
+    --input: 40 33% 98%;
+    --ring: 215 55% 40%;
 
     --radius: 0.75rem;
-  }
 
-  .dark {
-    /* Dark theme uses the same colors as we designed for portfolio */
-    --background: 220 20% 14%;
-    --foreground: 210 40% 98%;
-
-    --card: 220 20% 16%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 220 20% 16%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 217 91% 60%;
-    --primary-foreground: 210 40% 98%;
-    --primary-hover: 217 91% 55%;
-    --primary-glow: 217 91% 70%;
-
-    --secondary: 260 60% 20%;
-    --secondary-foreground: 210 40% 98%;
-    --secondary-hover: 260 60% 25%;
-
-    --muted: 220 20% 18%;
-    --muted-foreground: 220 13% 69%;
-
-    --accent: 217 91% 60%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 220 20% 22%;
-    --input: 220 20% 18%;
-    --ring: 217 91% 60%;
-
-    --sidebar-background: 220 20% 14%;
-    --sidebar-foreground: 210 40% 98%;
-    --sidebar-primary: 217 91% 60%;
-    --sidebar-primary-foreground: 210 40% 98%;
-    --sidebar-accent: 220 20% 18%;
-    --sidebar-accent-foreground: 210 40% 98%;
-    --sidebar-border: 220 20% 22%;
-    --sidebar-ring: 217 91% 60%;
+    --shadow-hard: 4px 4px 0px 0px #2d2d2d;
+    --shadow-hard-lg: 8px 8px 0px 0px #2d2d2d;
+    --shadow-hard-sm: 2px 2px 0px 0px #2d2d2d;
+    --shadow-card: 3px 3px 0px 0px rgba(45, 45, 45, 0.1);
   }
 }
 
@@ -116,129 +49,267 @@
   }
 
   body {
-    @apply bg-background text-foreground font-sans;
+    @apply bg-paper text-pencil font-hand;
+    background-image: radial-gradient(#e5e0d8 1px, transparent 1px);
+    background-size: 24px 24px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-kalam;
   }
 }
 
 @layer components {
-  /* Portfolio-specific components */
-  .hero-gradient {
-    background: var(--gradient-hero);
-  }
-
-  .card-gradient {
-    background: var(--gradient-card);
-  }
-
-  .btn-primary {
-    @apply bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300;
-    box-shadow: var(--shadow-primary);
-  }
-
-  .btn-secondary {
-    @apply bg-secondary text-secondary-foreground hover:bg-secondary/90 transition-all duration-300;
-  }
-
-  .btn-glow {
-    @apply btn-primary;
-    animation: glow 2s ease-in-out infinite alternate;
-  }
-
-  .tech-badge {
-    @apply bg-muted text-muted-foreground px-3 py-1 rounded-full text-sm font-medium;
-  }
-
-  .project-card {
-    @apply bg-card border border-border rounded-lg p-6 transition-all duration-300 hover:shadow-lg;
-    box-shadow: var(--shadow-card);
-  }
-
-  .project-card:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-glow);
-  }
-
+  /* ─── Section Title ─── */
   .section-title {
-    @apply text-3xl font-bold mb-8 text-center;
-    background: var(--gradient-primary);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    @apply text-4xl md:text-5xl font-kalam font-bold mb-8 text-center text-pencil relative inline-block;
   }
 
-  .skill-card {
-    @apply bg-muted/50 border border-border rounded-lg p-4 text-center transition-all duration-300 hover:bg-muted/80;
+  .section-title::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 4px;
+    background: #ff4d4d;
+    border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+    margin-top: 4px;
   }
 
-  .social-link {
-    @apply inline-flex items-center justify-center w-10 h-10 rounded-full bg-muted hover:bg-primary transition-all duration-300;
+  /* ─── Wobbly Card ─── */
+  .wobbly-card {
+    @apply bg-white border-2 border-pencil p-6 transition-transform duration-100;
+    border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+    box-shadow: 4px 4px 0px 0px #2d2d2d;
   }
 
-  .social-link:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-primary);
+  .wobbly-card:hover {
+    transform: rotate(-1deg);
+    box-shadow: 6px 6px 0px 0px #2d2d2d;
+  }
+
+  /* ─── Wobbly Card Alt (different wobble) ─── */
+  .wobbly-card-alt {
+    @apply bg-white border-2 border-pencil p-6 transition-transform duration-100;
+    border-radius: 15px 225px 15px 255px / 255px 15px 225px 15px;
+    box-shadow: 4px 4px 0px 0px #2d2d2d;
+  }
+
+  .wobbly-card-alt:hover {
+    transform: rotate(1deg);
+    box-shadow: 6px 6px 0px 0px #2d2d2d;
+  }
+
+  /* ─── Post-it Note Card ─── */
+  .postit-card {
+    @apply border-2 border-pencil p-6 transition-transform duration-100;
+    background: #fff9c4;
+    border-radius: 225px 15px 255px 15px / 15px 255px 15px 225px;
+    box-shadow: 4px 4px 0px 0px #2d2d2d;
+  }
+
+  .postit-card:hover {
+    transform: rotate(1deg) translateY(-2px);
+  }
+
+  /* ─── Buttons ─── */
+  .btn-sketchy {
+    @apply font-hand text-lg px-6 py-3 border-[3px] border-pencil bg-white text-pencil cursor-pointer transition-all duration-100;
+    border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+    box-shadow: 4px 4px 0px 0px #2d2d2d;
+  }
+
+  .btn-sketchy:hover {
+    @apply bg-marker-red text-white;
+    box-shadow: 2px 2px 0px 0px #2d2d2d;
+    transform: translate(2px, 2px);
+  }
+
+  .btn-sketchy:active {
+    box-shadow: none;
+    transform: translate(4px, 4px);
+  }
+
+  .btn-sketchy-secondary {
+    @apply font-hand text-lg px-6 py-3 border-[3px] border-pencil bg-paper-muted text-pencil cursor-pointer transition-all duration-100;
+    border-radius: 15px 225px 15px 255px / 255px 15px 225px 15px;
+    box-shadow: 4px 4px 0px 0px #2d2d2d;
+  }
+
+  .btn-sketchy-secondary:hover {
+    @apply bg-pen-blue text-white;
+    box-shadow: 2px 2px 0px 0px #2d2d2d;
+    transform: translate(2px, 2px);
+  }
+
+  .btn-sketchy-secondary:active {
+    box-shadow: none;
+    transform: translate(4px, 4px);
+  }
+
+  /* ─── Tech Badge ─── */
+  .tech-badge {
+    @apply font-hand text-sm px-3 py-1 border-2 border-pencil bg-white text-pencil inline-block;
+    border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+    box-shadow: 2px 2px 0px 0px #2d2d2d;
+  }
+
+  /* ─── Tape Decoration ─── */
+  .tape-decoration {
+    position: relative;
+  }
+
+  .tape-decoration::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-2deg);
+    width: 80px;
+    height: 24px;
+    background: rgba(200, 200, 200, 0.5);
+    border-radius: 2px;
+    z-index: 10;
+  }
+
+  /* ─── Tack Decoration ─── */
+  .tack-decoration {
+    position: relative;
+  }
+
+  .tack-decoration::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 14px;
+    height: 14px;
+    background: #ff4d4d;
+    border-radius: 50%;
+    border: 2px solid #2d2d2d;
+    z-index: 10;
+    box-shadow: 1px 1px 0px 0px #2d2d2d;
+  }
+
+  /* ─── Wavy Underline ─── */
+  .wavy-underline {
+    text-decoration: underline;
+    text-decoration-style: wavy;
+    text-decoration-color: #ff4d4d;
+    text-underline-offset: 4px;
+  }
+
+  /* ─── Sketchy Input ─── */
+  .sketchy-input {
+    @apply font-hand text-lg border-2 border-pencil bg-white px-4 py-3 w-full text-pencil placeholder:text-pencil/40;
+    border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+    outline: none;
+  }
+
+  .sketchy-input:focus {
+    border-color: #2d5da1;
+    box-shadow: 0 0 0 3px rgba(45, 93, 161, 0.2);
+  }
+
+  /* ─── Speech Bubble ─── */
+  .speech-bubble {
+    @apply bg-white border-2 border-pencil p-6 relative;
+    border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+    box-shadow: 4px 4px 0px 0px #2d2d2d;
+  }
+
+  .speech-bubble::after {
+    content: '';
+    position: absolute;
+    bottom: -16px;
+    left: 40px;
+    width: 0;
+    height: 0;
+    border-left: 16px solid transparent;
+    border-right: 16px solid transparent;
+    border-top: 16px solid #2d2d2d;
+  }
+
+  .speech-bubble::before {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: 42px;
+    width: 0;
+    height: 0;
+    border-left: 14px solid transparent;
+    border-right: 14px solid transparent;
+    border-top: 14px solid #ffffff;
+    z-index: 1;
+  }
+
+  /* ─── Social Link ─── */
+  .social-link-sketchy {
+    @apply inline-flex items-center justify-center w-12 h-12 border-2 border-pencil bg-white text-pencil transition-all duration-100 cursor-pointer;
+    border-radius: 225px 15px 255px 15px / 15px 255px 15px 225px;
+    box-shadow: 3px 3px 0px 0px #2d2d2d;
+  }
+
+  .social-link-sketchy:hover {
+    @apply bg-marker-red text-white;
+    box-shadow: 1px 1px 0px 0px #2d2d2d;
+    transform: translate(2px, 2px) rotate(-3deg);
+  }
+
+  /* ─── Dashed Divider ─── */
+  .dashed-divider {
+    @apply border-t-2 border-dashed border-pencil/30 my-8;
+  }
+
+  /* ─── Sticky Label ─── */
+  .sticky-label {
+    @apply font-kalam text-sm font-bold px-3 py-1 bg-postit text-pencil border-2 border-pencil inline-block;
+    border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+    box-shadow: 2px 2px 0px 0px #2d2d2d;
+    transform: rotate(-2deg);
+  }
+
+  /* ─── Organic Stat Shape ─── */
+  .organic-stat {
+    @apply flex flex-col items-center justify-center h-24 w-24 md:h-32 md:w-32 border-[3px] border-pencil bg-white font-kalam transition-transform duration-100;
+    box-shadow: 3px 3px 0px 0px #2d2d2d;
+  }
+
+  .organic-stat:hover {
+    transform: rotate(3deg) scale(1.05);
   }
 }
 
 @layer utilities {
-  /* Custom animations */
-  @keyframes glow {
-    from {
-      box-shadow: var(--shadow-primary);
-    }
-    to {
-      box-shadow: var(--shadow-glow);
-    }
+  /* Wobbly border-radius utility classes */
+  .rounded-wobbly {
+    border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
   }
 
-  @keyframes float {
-    0%, 100% {
-      transform: translateY(0px);
-    }
-    50% {
-      transform: translateY(-20px);
-    }
+  .rounded-wobbly-alt {
+    border-radius: 15px 225px 15px 255px / 255px 15px 225px 15px;
   }
 
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  .rounded-wobbly-sm {
+    border-radius: 225px 15px 255px 15px / 15px 255px 15px 225px;
   }
 
-  .animate-float {
-    animation: float 3s ease-in-out infinite;
+  /* Hard shadow utilities */
+  .shadow-hard {
+    box-shadow: 4px 4px 0px 0px #2d2d2d;
   }
 
-  .animate-fade-in-up {
-    animation: fadeInUp 0.8s ease-out;
+  .shadow-hard-lg {
+    box-shadow: 8px 8px 0px 0px #2d2d2d;
   }
 
-  .text-gradient {
-    background: var(--gradient-primary);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+  .shadow-hard-sm {
+    box-shadow: 2px 2px 0px 0px #2d2d2d;
   }
 
-  .hover-scale {
-    transition: transform 0.3s ease;
-  }
-
-  .hover-scale:hover {
-    transform: scale(1.05);
-  }
-
-  .smooth-transition {
-    transition: var(--transition-smooth);
-  }
-
-  .bounce-transition {
-    transition: var(--transition-bounce);
+  .shadow-hard-hover {
+    box-shadow: 6px 6px 0px 0px #2d2d2d;
   }
 }
