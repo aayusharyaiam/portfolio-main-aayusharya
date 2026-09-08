@@ -133,7 +133,7 @@ export const Hero = () => {
               className="flex gap-3 justify-center md:justify-start"
             >
               <a
-                href="https://github.com/AayushArya28"
+                href="https://github.com/aayusharyaiam"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="social-link-sketchy hover-scale"

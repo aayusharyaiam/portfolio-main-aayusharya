@@ -39,7 +39,7 @@ export const About = () => {
   const stats = [
     { value: '6+', label: 'Projects', radius: '73% 27% 70% 30% / 30% 56% 44% 70%' },
     { value: '2+', label: 'Years Learning', radius: '30% 70% 42% 58% / 62% 28% 72% 38%' },
-    { value: '100+', label: 'LeetCode Problems', radius: '58% 42% 35% 65% / 45% 55% 45% 55%' },
+    { value: '100+', label: 'CP', radius: '58% 42% 35% 65% / 45% 55% 45% 55%' },
     { value: '6', label: 'Certifications', radius: '42% 58% 60% 40% / 35% 65% 32% 68%' },
   ];
 

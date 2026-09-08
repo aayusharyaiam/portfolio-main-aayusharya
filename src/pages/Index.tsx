@@ -82,7 +82,7 @@ const Index = () => {
             <div>
               <h3 className="font-kalam text-lg font-bold text-pencil mb-3 wavy-underline">Connect</h3>
               <div className="flex gap-3 mt-3">
-                <a href="https://github.com/AayushArya28" target="_blank" rel="noopener noreferrer" className="social-link-sketchy" aria-label="GitHub">
+                <a href="https://github.com/aayusharyaiam" target="_blank" rel="noopener noreferrer" className="social-link-sketchy" aria-label="GitHub">
                   <Github className="h-5 w-5" strokeWidth={2.5} />
                 </a>
                 <a href="https://www.linkedin.com/in/aayusharyaiam" target="_blank" rel="noopener noreferrer" className="social-link-sketchy" aria-label="LinkedIn">

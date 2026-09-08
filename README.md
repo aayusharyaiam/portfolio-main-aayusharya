@@ -7,7 +7,7 @@ A playfully designed, hand-drawn/sketchy themed personal portfolio showcasing my
 ## 🌐 Live Website
 
 👉 [Visit Portfolio Site](https://portfolio-main-aayusharya.vercel.app/)  
-👉 [GitHub Profile](https://github.com/AayushArya28)  
+👉 [GitHub Profile](https://github.com/aayusharyaiam)  
 👉 [LinkedIn](https://www.linkedin.com/in/aayusharyaiam/)  
 👉 [LeetCode](https://leetcode.com/u/aayusharya_i_am/)
 
@@ -52,10 +52,12 @@ The website features a unique "paper and pencil" aesthetic:
 - **Home** – Dynamic hero with "drawing" animations and a quick career pitch.
 - **About Me** – Education timeline and statistics on Post-it widgets.
 - **Projects** – Comprehensive highlight spanning Web/Full Stack applications:
-  - *Technika'26* (Official Tech Fest Website)
-  - *Prakrida'26* & *IEEE Student Branch* Portals
+  - *Technika'26* (Official Tech Fest Website) — [Live](https://technikna-2-k25.vercel.app/) · [Source](https://github.com/aayusharyaiam/technikna_2K25)
+  - *Prakrida'26* (Official Sports Fest Website) — [Live](https://prakrida.in/) · [Source](https://github.com/ShiftainAhmad/Prakida_Demon)
+  - *IEEE Student Branch* Portal — [Live](https://www.ieeebitp.in/) · [Source](https://github.com/aayusharyaiam/IEEE-web)
   - *Bharti AI* (Gen AI text, code, audio synthesis platform)
-  - *Lifeer* & *IMPACT'25*
+  - *IMPACT'25* (International Conference Portal) — [Live](https://impact.bitmesra.ac.in/) · [Source](https://github.com/aayusharyaiam/cse_conference)
+  - *Lifeer* (Productivity Tracking App)
 - **Skills** – Stack breakdown (Go, MongoDB, MySQL, C++, React) and earned Certifications.
 - **Experience** – Outlining leadership execution as *Co-Head Web Developer* in several institutions.
 - **Contact** – Reachable interactive forms and social media.
@@ -75,8 +77,8 @@ The website features a unique "paper and pencil" aesthetic:
 
 ```bash
 # Clone the repository
-git clone https://github.com/AayushArya28/portfolio-website.git
-cd portfolio-website
+git clone https://github.com/aayusharyaiam/portfolio-main-aayusharya.git
+cd portfolio-main-aayusharya
 
 # Install frontend dependencies
 npm install

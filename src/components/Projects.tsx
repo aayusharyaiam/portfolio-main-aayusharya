@@ -10,7 +10,8 @@ export const Projects = () => {
       role: "Co-Head Web Developer",
       tagline: "Official Tech Fest Website",
       category: "UI/UX + Scalability",
-      repo: "https://github.com/aayusharyaiam/technikna_2K25"
+      repo: "https://github.com/aayusharyaiam/technikna_2K25",
+      live: "https://technikna-2-k25.vercel.app/"
     },
     {
       title: "Prakrida'26",
@@ -19,7 +20,8 @@ export const Projects = () => {
       role: "Co-Head Web Developer",
       tagline: "Official Sports Fest Website",
       category: "Full Stack",
-      repo: "https://github.com/ShiftainAhmad/Prakida_Demon"
+      repo: "https://github.com/ShiftainAhmad/Prakida_Demon",
+      live: "https://prakrida.in/"
     },
     {
       title: "IEEE Student Branch",
@@ -28,7 +30,8 @@ export const Projects = () => {
       role: "Co-Head Web Developer",
       tagline: "Student Chapter Platform",
       category: "Community",
-      repo: "https://github.com/aayusharyaiam/IEEE-web"
+      repo: "https://github.com/aayusharyaiam/IEEE-web",
+      live: "https://www.ieeebitp.in/"
     },
     {
       title: "Bharti AI",
@@ -44,7 +47,9 @@ export const Projects = () => {
       tags: ["React", "TailwindCSS", "Vite"],
       role: "Frontend Developer",
       tagline: "International Conference Portal",
-      category: "Frontend"
+      category: "Frontend",
+      repo: "https://github.com/aayusharyaiam/cse_conference",
+      live: "https://impact.bitmesra.ac.in/"
     },
     {
       title: "Lifeer",
@@ -131,13 +136,17 @@ export const Projects = () => {
 
               {/* Action Links */}
               <div className="flex gap-4 pt-4 border-t-2 border-dashed border-pencil/20">
-                <a
-                  href="#"
-                  className="flex items-center gap-2 font-hand text-marker-red hover:text-pencil transition-colors font-bold group"
-                >
-                  <ExternalLink className="h-4 w-4 group-hover:scale-125 transition-transform" strokeWidth={2.5} />
-                  Live Demo
-                </a>
+                {project.live && (
+                  <a
+                    href={project.live}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 font-hand text-marker-red hover:text-pencil transition-colors font-bold group"
+                  >
+                    <ExternalLink className="h-4 w-4 group-hover:scale-125 transition-transform" strokeWidth={2.5} />
+                    Live Demo
+                  </a>
+                )}
                 {project.repo ? (
                   <a
                     href={project.repo}
