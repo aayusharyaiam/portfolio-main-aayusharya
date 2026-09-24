@@ -1,25 +1,32 @@
 import { Briefcase, Calendar, Users, Target } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
+import { SectionTitle } from '@/components/motion/SectionTitle';
+import { Parallax } from '@/components/motion/Reveal';
+import { Magnetic } from '@/components/motion/Magnetic';
+import { TiltCard } from '@/components/motion/TiltCard';
+import { DoodleCircle, DoodleUnderline, DoodleSparkle, DoodleScribble } from '@/components/motion/Doodles';
 
 export const Experience = () => {
+  const reduced = useReducedMotion();
+
   const experiences = [
     {
       role: 'Co-Head Web Developer',
-      company: 'Technika\'26 (Official Tech Fest)',
+      company: "Technika'26 (Official Tech Fest)",
       duration: 'Present',
       description: 'Managing the development team for the official tech fest website of BIT Mesra, coordinating with design and content teams to deliver a high-performance web experience.',
       icon: <Users className="h-5 w-5" strokeWidth={2.5} />
     },
     {
       role: 'Co-Head Web Developer',
-      company: 'Prakrida\'26',
+      company: "Prakrida'26",
       duration: 'Present',
       description: 'Developed and managed the official website for Prakrida\'26, enhancing user experience through modern UI/UX and seamless performance as the sole web developer.',
       icon: <Users className="h-5 w-5" strokeWidth={2.5} />
     },
     {
       role: 'Co Web-Dev',
-      company: 'IEEE Student Branch',
+      company: "IEEE Student Branch",
       duration: 'Present',
       description: 'Leading the Web Development team to build and maintain the official platform for IEEE BIT Mesra Student Branch, ensuring robust architecture and seamless user experience.',
       icon: <Target className="h-5 w-5" strokeWidth={2.5} />
@@ -33,107 +40,100 @@ export const Experience = () => {
   ];
 
   return (
-    <section id="experience" className="py-20 px-6">
-      <div className="max-w-4xl mx-auto">
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <h2 className="section-title tracking-widest">Experience & Roles</h2>
-        </motion.div>
+    <section id="experience" className="py-24 px-6 bg-paper">
+      <div className="max-w-7xl mx-auto">
+        <SectionTitle children="Experience & Roles" />
 
         <div className="relative">
-          {/* Hand-drawn timeline central line (desktop) */}
-          <div className="hidden md:block absolute left-1/2 top-4 bottom-4 w-0 border-l-[3px] border-dashed border-pencil/30" />
-
-          <div className="space-y-12">
+          <div className="max-w-3xl mx-auto space-y-10">
             {experiences.map((exp, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.6, type: "spring", bounce: 0.3 }}
-                className={`flex flex-col md:flex-row gap-6 md:gap-12 items-center ${
-                  index % 2 === 0 ? 'md:flex-row-reverse' : ''
-                }`}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-60px' }}
+                transition={{ duration: 0.6, delay: index * 0.12, type: 'spring', stiffness: 180 }}
+                className="w-full"
               >
-                {/* Timeline node - completely hidden on mobile for better stacking */}
-                <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 w-10 h-10 bg-paper border-[3px] border-pencil z-10 items-center justify-center rounded-full" style={{ boxShadow: '2px 2px 0px 0px #2d2d2d' }}>
-                  <div className="text-marker-red">
-                    {exp.icon}
-                  </div>
-                </div>
-
-                {/* Content Card */}
-                <motion.div 
-                  whileHover={{ scale: 1.02 }}
-                  className={`w-full md:w-1/2 ${index % 2 === 0 ? 'md:pl-12' : 'md:pr-12'}`}
-                >
-                  <div 
-                    className="bg-white border-[3px] border-pencil p-6 relative group"
-                    style={{ 
-                      borderRadius: index % 2 === 0 ? '255px 15px 225px 15px / 15px 225px 15px 255px' : '15px 255px 15px 225px / 255px 15px 225px 15px',
-                      boxShadow: '6px 6px 0px 0px #2d2d2d'
+                {/* 3D card surface */}
+                <TiltCard intensity={8} shadowSize={8} shadowColor="#2d2d2d">
+                  <div
+                    className="bg-white border-[3px] border-pencil p-6 sm:p-8 relative group"
+                    style={{
+                      borderRadius: '255px 15px 225px 15px / 15px 225px 15px 255px',
+                      boxShadow: '4px 4px 0px 0px #2d2d2d',
+                      transformStyle: 'preserve-3d'
                     }}
                   >
-                    {/* Speech bubble pointer (desktop) */}
-                    <div className={`hidden md:block absolute top-6 w-4 h-4 bg-white border-pencil ${
-                      index % 2 === 0 
-                        ? '-left-[10px] border-b-[3px] border-l-[3px] rotate-45' 
-                        : '-right-[10px] border-t-[3px] border-r-[3px] rotate-45'
-                    }`} />
-                    
-                    <h3 className="font-kalam text-xl md:text-2xl font-bold text-pencil mb-1">
-                      {exp.role}
-                    </h3>
-                    <h4 className="font-hand text-lg text-marker-red font-bold mb-3">
-                      @ {exp.company}
-                    </h4>
-                    
-                    <div className="flex items-center gap-2 mb-4 text-pencil/60 border-b-2 border-dashed border-pencil/20 pb-3">
-                      <Calendar className="h-4 w-4" strokeWidth={2.5} />
-                      <span className="font-hand text-sm font-bold">{exp.duration}</span>
+                    {/* Header with icon */}
+                    <div className="flex items-start gap-4 mb-3">
+                      <div className="w-12 h-12 flex-shrink-0 bg-paper border-[3px] border-pencil rounded-full shadow-hard-sm flex items-center justify-center">
+                        {exp.icon}
+                      </div>
+                      <div className="flex-1">
+                        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                          <h3 className="font-kalam text-xl md:text-2xl font-bold text-pencil leading-tight">
+                            {exp.role}
+                          </h3>
+                          <div className="flex items-center gap-1.5 text-pencil/70 font-hand font-bold text-sm bg-paper-muted border border-pencil px-2.5 py-0.5 rounded-wobbly-sm self-start">
+                            <Calendar className="h-3.5 w-3.5 text-pen-blue" strokeWidth={2.5} />
+                            <span>{exp.duration}</span>
+                          </div>
+                        </div>
+                        <h4 className="font-hand text-lg text-marker-red font-bold mt-1">
+                          @ {exp.company}
+                        </h4>
+                      </div>
                     </div>
-                    
-                    <p className="font-hand text-pencil/80 md:text-lg leading-relaxed">
-                      {exp.description}
-                    </p>
+
+                    <div className="border-t-2 border-dashed border-pencil/20 pt-3 mt-2">
+                      <p className="font-hand text-pencil/80 md:text-lg leading-relaxed">
+                        {exp.description}
+                      </p>
+                    </div>
                   </div>
-                </motion.div>
-                
-                {/* Empty space for timeline alignment */}
-                <div className="hidden md:block md:w-1/2" />
+                </TiltCard>
               </motion.div>
             ))}
           </div>
+
+          {/* Floating doodles for flavor */}
+          <motion.div className="absolute top-1/4 right-2 w-14 h-14 text-marker-red/60" style={{ perspective: 400 }}>
+            <DoodleSparkle delay={0.6} />
+            <DoodleScribble delay={1.2} />
+          </motion.div>
+
+          {/* Underline + sparkle before clubs */}
+          <DoodleUnderline className="absolute bottom-6 left-1/2 -translate-x-1/2 w-96 text-marker-red" delay={0.9} />
+          <DoodleSparkle className="absolute bottom-2 right-2 w-8 h-8 text-pen-blue" delay={0.7} />
         </div>
 
-        {/* Memberships Section */}
-        <motion.div 
+        {/* Clubs */}
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="mt-20 border-t-[3px] border-dashed border-pencil/20 pt-10"
+          className="mt-20 pt-10 border-t-2 border-dashed border-pencil/20"
         >
-          <div className="inline-block tack-decoration bg-paper-muted px-4 mb-8 rotate-1">
+          <div className="inline-block tack-decoration bg-paper-muted px-4 rotate-1">
             <h3 className="font-kalam text-2xl font-bold text-pencil">🌟 Clubs and Memberships</h3>
           </div>
-          
-          <div className="grid md:grid-cols-2 gap-6">
+
+          <div className="grid md:grid-cols-2 gap-8 mt-6">
             {clubs.map((club, index) => (
-              <motion.div 
+              <motion.div
                 key={index}
-                whileHover={{ scale: 1.05, rotate: index % 2 === 0 ? -1 : 1 }}
+                initial={{ opacity: 0, rotateY: -40, x: -30 }}
+                whileInView={{ opacity: 1, rotateY: 0, x: 0 }}
+                viewport={{ once: true, margin: '-50px' }}
+                transition={{ duration: 0.5, delay: index * 0.08, type: 'spring', stiffness: 160 }}
+                whileHover={{ scale: 1.05, rotate: index % 2 === 0 ? 3 : -3, transition: { type: 'spring', stiffness: 260, damping: 22 } }}
                 className="postit-card flex flex-col justify-center"
               >
                 <div className="flex justify-between items-start mb-2">
                   <h4 className="font-kalam font-bold text-xl text-pencil">{club.name}</h4>
-                  <span className="font-hand font-bold text-sm bg-paper-muted border border-pencil px-2 py-0.5" style={{ borderRadius: '40% 60% 70% 30% / 40% 50% 60% 50%' }}>
+                  <span className="font-hand font-bold text-sm bg-paper-muted border border-pencil px-2 py-0.5 rounded-wobbly-sm" style={{ borderRadius: '40% 60% 70% 30% / 40% 50% 60% 50%' }}>
                     {club.role}
                   </span>
                 </div>
@@ -141,8 +141,16 @@ export const Experience = () => {
               </motion.div>
             ))}
           </div>
-        </motion.div>
 
+          {/* Club-level doodles */}
+          <motion.div
+            className="absolute top-1/4 left-1/4 w-20 h-20 text-pen-blue/60 rotate-6"
+            style={{ perspective: 400 }}
+          >
+            <DoodleCircle delay={1.3} />
+            <DoodleSparkle delay={1.5} />
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );

@@ -1,7 +1,11 @@
-import { Trophy, Code, Link as LinkIcon, ExternalLink, Milestone, CheckCircle2 as CheckCircle, Star } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { Trophy, Code, Link as LinkIcon, ExternalLink, Milestone, CheckCircle2 as CheckCircle, Sparkles } from 'lucide-react';
+import { motion, useReducedMotion } from 'framer-motion';
+import { SectionTitle } from '@/components/motion/SectionTitle';
+import { Magnetic } from '@/components/motion/Magnetic';
 
 export const Highlights = () => {
+  const reduced = useReducedMotion();
+
   const hackathons = [
     {
       name: "Cybersecurity Hackathon",
@@ -52,163 +56,187 @@ export const Highlights = () => {
         "Custom purple glowing themed scrollbar aligned with brand aesthetics",
         "Subtle purple-to-black gradient backgrounds for enhanced visual depth"
       ],
-      takeaway: "\"Clarity builds trust — VerifyAI helps you see the truth through the noise.\""
+      takeaway: "Clarity builds trust — VerifyAI helps you see the truth through the noise."
     }
   ];
 
-  const accomplishments2025 = [
-    { title: "Technika 2K26 (Web Team – React)", desc: "Hands-on experience with scalable frontend development and team collaboration." },
-    { title: "Smart India Hackathon 2K25", desc: "Cleared the college-level internal round, strengthening ideation, teamwork, and problem-solving." },
-    { title: "GDG DevFest Patna", desc: "Exposure to Salesforce, cloud technologies, and industry-driven insights through the GDG Patna community." },
-    { title: "GDG Ludhiana", desc: "Practical understanding of AI & Cloud concepts beyond theory." },
-    { title: "Xordium Hackathon (Ignite Club)", desc: "Rapid prototyping and building under pressure." },
-    { title: "Hacktoberfest 2025", desc: "First structured open-source contributions, learning Git workflows and PR standards." },
-    { title: "React + Google Maps API Project", desc: "Real API integration, optimisation, and frontend logic." },
-    { title: "Open Source with React & Tailwind", desc: "Cleaner UI systems, reusable components, and design consistency." }
-  ];
-
   return (
-    <section id="highlights" className="py-20 px-6 overflow-hidden bg-paper-muted border-y-[3px] border-pencil">
+    <section id="highlights" className="py-24 px-6 bg-paper-muted">
       <div className="max-w-6xl mx-auto">
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <h2 className="section-title text-marker-red">Hackathons & Highlights</h2>
-          <p className="font-hand text-xl mt-4 text-pencil/80">2025 — A Year of Growth, Teams, and Real Learning 🚀</p>
-        </motion.div>
+        <SectionTitle children="Hackathons & Highlights" />
 
-        {/* Hackathons Grid */}
-        <div className="flex flex-col gap-10 mb-20">
-          {hackathons.map((hackathon, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, scale: 0.95, y: 30 }}
-              whileInView={{ opacity: 1, scale: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-white border-[3px] border-pencil p-6 sm:p-8 tape-decoration relative"
-              style={{
-                borderRadius: index % 2 === 0 ? '15px 225px 255px 15px / 255px 15px 225px 15px' : '255px 15px 225px 15px / 15px 225px 15px 255px',
-                boxShadow: '6px 6px 0px 0px #2d2d2d'
-              }}
-            >
-              <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6 pb-4 border-b-2 border-dashed border-pencil/20">
-                <div>
-                  <h3 className="font-kalam text-2xl md:text-3xl font-bold text-pencil leading-tight flex items-center gap-2">
-                    <Trophy className="h-6 w-6 text-[#FFD700]" strokeWidth={2.5} />
-                    {hackathon.name}
-                  </h3>
-                  <div className="flex items-center gap-2 text-pencil/60 mt-2 font-hand font-bold">
-                    <Milestone className="h-4 w-4" />
-                    <span>{hackathon.location}</span>
-                  </div>
-                </div>
-                
-                <div 
-                  className="bg-postit border-2 border-pencil px-4 py-2 font-kalam text-lg font-bold text-marker-red rotate-2"
-                  style={{ borderRadius: '255px 15px 225px 15px / 15px 225px 15px 255px', boxShadow: '2px 2px 0px 0px #2d2d2d' }}
+        {/* Outer Single Page / Elliptical Capsule Container (~60vw on large screens) */}
+        <div className="w-full max-w-4xl lg:w-[62vw] mx-auto">
+          <div
+            className="bg-[#faf8f5] border-[3px] border-pencil p-6 sm:p-9 md:p-12 shadow-hard-lg relative"
+            style={{ borderRadius: '64px 64px 64px 64px' }}
+          >
+            {/* Page Header Strip / Ellipse Apex Badge */}
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pb-6 mb-6 border-b-2 border-dashed border-pencil/30 text-center sm:text-left">
+              <div className="flex items-center gap-2">
+                <span className="w-3 h-3 rounded-full bg-marker-red border border-pencil" />
+                <span className="w-3 h-3 rounded-full bg-[#ffc107] border border-pencil" />
+                <span className="w-3 h-3 rounded-full bg-green-500 border border-pencil" />
+                <span className="font-kalam font-bold text-lg text-pencil ml-2">
+                  🏆 Hackathon Log (3 Entries)
+                </span>
+              </div>
+              <span className="font-hand font-bold text-sm text-pencil/70 bg-paper px-4 py-1 border border-pencil rounded-full shadow-hard-sm">
+                Single Sheet • 3 Projects
+              </span>
+            </div>
+
+            {/* 3 Divided Sub-Boxes matching the Elliptical Contour */}
+            <div className="space-y-6">
+              {hackathons.map((hackathon, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: '-40px' }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="bg-white border-2 border-pencil p-5 sm:p-7 shadow-hard-sm hover:shadow-hard transition-all relative group"
+                  style={{
+                    borderRadius: index === 0
+                      ? '36px 36px 16px 16px'
+                      : index === 1
+                      ? '18px 18px 18px 18px'
+                      : '16px 16px 36px 36px',
+                  }}
                 >
-                  {hackathon.position}
-                </div>
-              </div>
+                  {/* Segment Header */}
+                  <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 mb-4 pb-3 border-b border-dashed border-pencil/20">
+                    <div>
+                      <div className="flex items-center gap-2">
+                        <span className="font-hand font-bold text-xs bg-paper-muted border border-pencil px-2.5 py-0.5 rounded-full text-pencil">
+                          Part {index + 1} of 3
+                        </span>
+                        <h3 className="font-kalam text-xl sm:text-2xl font-bold text-pencil leading-tight">
+                          {hackathon.name}
+                        </h3>
+                      </div>
+                      <div className="flex items-center gap-1.5 text-pencil/60 mt-1 font-hand font-bold text-sm">
+                        <Milestone className="h-4 w-4 text-pen-blue flex-shrink-0" />
+                        <span>{hackathon.location}</span>
+                      </div>
+                    </div>
 
-              <div className="mb-6">
-                <h4 className="font-hand font-bold text-xl text-pen-blue mb-2 flex items-center gap-2">
-                  <Code className="h-5 w-5" /> 
-                  Project: {hackathon.project}
-                </h4>
-                {hackathon.problem && (
-                  <p className="font-hand text-pencil/80 text-lg mb-4 italic border-l-4 border-marker-red pl-3 bg-red-50/50 py-2">
-                    " {hackathon.problem} "
-                  </p>
-                )}
-                
-                {hackathon.features.length > 0 && (
-                  <ul className="space-y-2 mb-6">
-                    {hackathon.features.map((feature, i) => (
-                      <li key={i} className="flex items-start gap-2 font-hand text-lg text-pencil/80">
-                        <CheckCircle className="h-5 w-5 text-green-600 mt-1 flex-shrink-0" strokeWidth={2.5}/>
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-                
-                {hackathon.takeaway && (
-                  <div className="mt-4 p-4 border-2 border-dashed border-pen-blue/40 bg-blue-50/30 rounded-lg">
-                    <p className="font-hand text-lg font-bold text-pen-blue flex items-start gap-2">
-                      <Star className="h-5 w-5 flex-shrink-0 mt-0.5" />
-                      {hackathon.takeaway}
-                    </p>
+                    <div
+                      className="bg-postit border-2 border-pencil px-3 py-1 font-kalam text-sm sm:text-base font-bold text-marker-red rotate-1 self-start sm:self-auto shadow-hard-sm"
+                      style={{ borderRadius: '255px 15px 225px 15px / 15px 225px 15px 255px' }}
+                    >
+                      🏆 {hackathon.position}
+                    </div>
                   </div>
-                )}
-              </div>
 
-              {/* Links */}
-              <div className="flex flex-wrap gap-4 pt-4">
-                {hackathon.repo && (
-                   <a
-                    href={hackathon.repo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 font-hand font-bold hover:text-marker-red text-pencil transition-colors group px-3 py-1 border-2 border-pencil bg-paper"
-                    style={{ borderRadius: '15px 225px 255px 15px / 255px 15px 225px 15px' }}
-                  >
-                    <ExternalLink className="h-4 w-4 group-hover:scale-125 transition-transform" strokeWidth={2.5} />
-                    GitHub Repo
-                   </a>
-                )}
-                {hackathon.links?.map((link, idx) => (
-                  <a
-                    key={idx}
-                    href={link.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 font-hand font-bold hover:text-pen-blue text-pencil transition-colors group px-3 py-1 border-2 border-pencil bg-paper"
-                    style={{ borderRadius: '255px 15px 225px 15px / 15px 225px 15px 255px' }}
-                  >
-                    <LinkIcon className="h-4 w-4 group-hover:scale-125 transition-transform" strokeWidth={2.5} />
-                    {link.label}
-                  </a>
-                ))}
-              </div>
-            </motion.div>
-          ))}
+                  {/* Project Info */}
+                  <div className="mb-4">
+                    <h4 className="font-hand font-bold text-lg text-pen-blue mb-2 flex items-center gap-2">
+                      <Code className="h-4 w-4 flex-shrink-0" />
+                      <span>Project: {hackathon.project}</span>
+                    </h4>
+
+                    {hackathon.problem && (
+                      <p className="font-hand text-pencil/80 text-base mb-3 italic bg-paper-muted/50 border-l-[3px] border-marker-red pl-3 py-1 rounded-r">
+                        "{hackathon.problem}"
+                      </p>
+                    )}
+
+                    {hackathon.features.length > 0 && (
+                      <ul className="grid sm:grid-cols-2 gap-2 my-3">
+                        {hackathon.features.map((feature, i) => (
+                          <li key={i} className="flex items-start gap-2 font-hand text-sm sm:text-base text-pencil/85">
+                            <CheckCircle className="h-4 w-4 text-green-600 mt-0.5 flex-shrink-0" strokeWidth={2.5} />
+                            <span>{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+
+                    {hackathon.takeaway && (
+                      <div className="mt-3 p-3 border border-dashed border-pen-blue/40 bg-blue-50/40 rounded-xl">
+                        <p className="font-hand text-sm sm:text-base font-bold text-pen-blue">
+                          💡 {hackathon.takeaway}
+                        </p>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Links */}
+                  <div className="flex flex-wrap gap-2.5 pt-1">
+                    {hackathon.repo && (
+                      <Magnetic strength={8}>
+                        <a
+                          href={hackathon.repo}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-1.5 font-hand font-bold hover:text-marker-red text-pencil text-sm transition-colors px-3 py-1 border-2 border-pencil bg-paper rounded-wobbly-sm shadow-hard-sm"
+                        >
+                          <ExternalLink className="h-3.5 w-3.5" strokeWidth={2.5} />
+                          GitHub Repo
+                        </a>
+                      </Magnetic>
+                    )}
+                    {hackathon.links?.map((link, idx) => (
+                      <Magnetic strength={8} key={idx}>
+                        <a
+                          href={link.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-1.5 font-hand font-bold hover:text-pen-blue text-pencil text-sm transition-colors px-3 py-1 border-2 border-pencil bg-paper rounded-wobbly-sm shadow-hard-sm"
+                        >
+                          <LinkIcon className="h-3.5 w-3.5" strokeWidth={2.5} />
+                          {link.label}
+                        </a>
+                      </Magnetic>
+                    ))}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
         </div>
 
         {/* 2025 Accomplishments List */}
         <motion.div
-           initial={{ opacity: 0, y: 30 }}
-           whileInView={{ opacity: 1, y: 0 }}
-           viewport={{ once: true }}
-           transition={{ duration: 0.6 }}
-           className="wobbly-card-alt tack-decoration bg-white sm:p-10"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mt-20 w-full max-w-4xl lg:w-[62vw] mx-auto wobbly-card-alt tack-decoration bg-white sm:p-10 relative"
         >
-           <h3 className="font-kalam text-3xl font-bold mb-8 flex items-center justify-center gap-2 text-pencil border-b-2 border-pencil/20 pb-4">
-             <Trophy className="h-8 w-8 text-marker-red" strokeWidth={2.5} />
-             Key Highlights from 2025
-           </h3>
-           <div className="grid md:grid-cols-2 gap-6 md:gap-8 lg:gap-10">
-             {accomplishments2025.map((item, index) => (
-                <div key={index} className="flex gap-4 group">
-                  <div className="mt-1">
-                    <div className="w-8 h-8 rounded-full border-2 border-pencil bg-paper flex items-center justify-center text-pen-blue font-kalam font-bold group-hover:bg-postit transition-colors" style={{ boxShadow: '2px 2px 0px 0px #2d2d2d' }}>
-                      {index + 1}
-                    </div>
-                  </div>
-                  <div>
-                    <h4 className="font-kalam text-xl font-bold text-pencil group-hover:text-marker-red transition-colors">{item.title}</h4>
-                    <p className="font-hand text-lg text-pencil/70 leading-relaxed mt-1">{item.desc}</p>
+          <h3 className="font-kalam text-2xl sm:text-3xl font-bold mb-8 flex items-center justify-center gap-2 text-pencil border-b-2 border-pencil/20 pb-4">
+            <Trophy className="h-7 w-7 text-marker-red" strokeWidth={2.5} />
+            Key Highlights from 2025
+          </h3>
+          <div className="grid md:grid-cols-2 gap-6 md:gap-8">
+            {[
+              { title: "Technika 2K26 (Web Team – React)", desc: "Hands-on experience with scalable frontend development and team collaboration." },
+              { title: "Smart India Hackathon 2K25", desc: "Cleared the college-level internal round, strengthening ideation, teamwork, and problem-solving." },
+              { title: "GDG DevFest Patna", desc: "Exposure to Salesforce, cloud technologies, and industry-driven insights through the GDG Patna community." },
+              { title: "GDG Ludhiana", desc: "Practical understanding of AI & Cloud concepts beyond theory." },
+              { title: "Xordium Hackathon (Ignite Club)", desc: "Rapid prototyping and building under pressure." },
+              { title: "Hacktoberfest 2025", desc: "First structured open-source contributions, learning Git workflows and PR standards." },
+              { title: "React + Google Maps API Project", desc: "Real API integration, optimisation, and frontend logic." },
+              { title: "Open Source with React & Tailwind", desc: "Cleaner UI systems, reusable components, and design consistency." }
+            ].map((item, index) => (
+              <div key={index} className="flex gap-3.5 group">
+                <div className="mt-1">
+                  <div
+                    className="w-7 h-7 rounded-full border-2 border-pencil bg-paper flex items-center justify-center text-pen-blue font-kalam font-bold text-sm group-hover:bg-postit transition-colors"
+                    style={{ boxShadow: '2px 2px 0px 0px #2d2d2d' }}
+                  >
+                    {index + 1}
                   </div>
                 </div>
-             ))}
-           </div>
+                <div>
+                  <h4 className="font-kalam text-lg sm:text-xl font-bold text-pencil group-hover:text-marker-red transition-colors">{item.title}</h4>
+                  <p className="font-hand text-base sm:text-lg text-pencil/70 leading-relaxed mt-0.5">{item.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </motion.div>
-
       </div>
     </section>
   );
