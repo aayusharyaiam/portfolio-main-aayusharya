@@ -1,10 +1,19 @@
 import { ArrowDown, Github, Linkedin, Code, FileText } from 'lucide-react';
 import resume from '@/assets/AayushArya_Resume.pdf';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
+import { ResumeBillModal } from '@/components/ResumeBillModal';
 
 export const Hero = () => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [showBillModal, setShowBillModal] = useState(false);
+
+  const openBillModal = () => setShowBillModal(true);
+  const closeBillModal = () => setShowBillModal(false);
+  const handleOpenPdf = () => {
+    window.open(resume, '_blank', 'noopener,noreferrer');
+    closeBillModal();
+  };
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end start"]
@@ -115,10 +124,13 @@ export const Hero = () => {
               transition={{ duration: 0.6, delay: 0.6 }}
               className="flex flex-col sm:flex-row gap-4 mb-8"
             >
-              <a href={resume} target="_blank" rel="noopener noreferrer" className="btn-sketchy inline-flex items-center justify-center gap-2">
+              <button
+                onClick={openBillModal}
+                className="btn-sketchy inline-flex items-center justify-center gap-2 cursor-pointer"
+              >
                 <FileText className="h-5 w-5" strokeWidth={2.5} />
                 View Resume
-              </a>
+              </button>
               <button onClick={scrollToProjects} className="btn-sketchy-secondary inline-flex items-center justify-center gap-2">
                 <Code className="h-5 w-5" strokeWidth={2.5} />
                 My Projects
@@ -239,6 +251,12 @@ export const Hero = () => {
           </button>
         </motion.div>
       </div>
+
+      <ResumeBillModal
+        isOpen={showBillModal}
+        onClose={closeBillModal}
+        onOpenPdf={handleOpenPdf}
+      />
     </section>
   );
 };
