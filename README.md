@@ -1,91 +1,83 @@
-# 🧑‍💻 Aayush Arya — Portfolio Website
+# Aayush Arya Portfolio
 
-A playfully designed, hand-drawn/sketchy themed personal portfolio showcasing my **projects**, **skills**, and **experience** as a Full Stack Developer. The entire design system is built with React, Tailwind CSS, and Framer Motion to create engaging, dynamic interactions.
+Personal portfolio for Aayush Arya, a full-stack web developer. The site presents selected projects, technical skills, experience, certifications, social profiles, and contact details through a responsive single-page experience.
 
----
+**Live site:** [portfolio-main-aayusharya.vercel.app](https://portfolio-main-aayusharya.vercel.app/)
 
-## 🌐 Live Website
+## Highlights
 
-👉 [Visit Portfolio Site](https://portfolio-main-aayusharya.vercel.app/)  
-👉 [GitHub Profile](https://github.com/aayusharyaiam)  
-👉 [LinkedIn](https://www.linkedin.com/in/aayusharyaiam/)  
-👉 [LeetCode](https://leetcode.com/u/aayusharya_i_am/)
+- Hand-drawn paper-and-pencil visual style with custom Tailwind utilities.
+- Animated hero, section reveals, parallax elements, hover states, and SVG path animations with Framer Motion.
+- Responsive sections for Home, About, Projects, Skills, Experience, Highlights, and Contact.
+- Featured work including Technika'26, Prakrida'26, IEEE Student Branch, Bharti AI, IMPACT'25, and Lifeer.
+- Resume viewer with an animated receipt-style modal and the bundled PDF at `src/assets/AayushArya_Resume.pdf`.
+- Contact form submitted through FormSubmit; no application backend is required.
+- External links to GitHub, LinkedIn, LeetCode, live projects, and public source repositories.
 
----
+## Tech Stack
 
-## 🎨 Design System: Sketchy & Hand-Drawn
+- React 18 with TypeScript
+- Vite 5
+- Tailwind CSS 3 and PostCSS
+- Framer Motion
+- React Router
+- TanStack Query
+- Radix UI primitives and shadcn-style components
+- Lucide React icons
+- ESLint and TypeScript for code quality
 
-The website features a unique "paper and pencil" aesthetic:
-- **Warm Paper Textures:** Utilizing a dot grid `#fdfbf7` backdrop.
-- **Wobbly Borders & Hard Shadows:** Custom CSS shapes overriding standard Tailwind radii.
-- **Handwritten Typography:** Utilizing `Kalam` and `Patrick Hand` Google fonts.
-- **Decorative SVGs:** Sticky labels, Post-it notes, tape strips, and speech bubbles.
+## Getting Started
 
-### Visual Preview
+### Requirements
 
-<br>
-<div align="center">
-  <img src="public/screenshots/hero.png" alt="Hero Section Preview" width="800"/>
-  <p><em>Hero Section with SVG Sketch Animations and Parallax Context</em></p>
-</div>
-<br>
-<div align="center">
-  <img src="public/screenshots/projects.png" alt="Projects Section Preview" width="800"/>
-  <p><em>Wobbly Project Cards and Rotated Decorative Callouts</em></p>
-</div>
-<br>
+- Node.js 18 or newer
+- npm, or Bun when using the included `bun.lockb` file
 
----
-
-## 🚀 Key Features
-
-- ⚡ **Interactive UI:** Powered by React + Vite.
-- 🎬 **Animations:** Path drawing, parallax layers, and scroll-triggers implemented with `framer-motion`.
-- 📱 **Responsive Design:** Fluidly adapts from mobile viewports to ultra-wide displays.
-- 📥 **Resume Integration:** Immediate downloadable PDF of latest experiences.
-- 📬 **Serverless Contact Form:** End-to-end mailing hooked into `formsubmit.co` without complex backend requirements.
-
----
-
-## 🧩 Sections Included
-
-- **Home** – Dynamic hero with "drawing" animations and a quick career pitch.
-- **About Me** – Education timeline and statistics on Post-it widgets.
-- **Projects** – Comprehensive highlight spanning Web/Full Stack applications:
-  - *Technika'26* (Official Tech Fest Website) — [Live](https://technikna-2-k25.vercel.app/) · [Source](https://github.com/aayusharyaiam/technikna_2K25)
-  - *Prakrida'26* (Official Sports Fest Website) — [Live](https://prakrida.in/) · [Source](https://github.com/ShiftainAhmad/Prakida_Demon)
-  - *IEEE Student Branch* Portal — [Live](https://www.ieeebitp.in/) · [Source](https://github.com/aayusharyaiam/IEEE-web)
-  - *Bharti AI* (Gen AI text, code, audio synthesis platform)
-  - *IMPACT'25* (International Conference Portal) — [Live](https://impact.bitmesra.ac.in/) · [Source](https://github.com/aayusharyaiam/cse_conference)
-  - *Lifeer* (Productivity Tracking App)
-- **Skills** – Stack breakdown (Go, MongoDB, MySQL, C++, React) and earned Certifications.
-- **Experience** – Outlining leadership execution as *Co-Head Web Developer* in several institutions.
-- **Contact** – Reachable interactive forms and social media.
-
----
-
-## 🛠️ Stack & Dependencies
-
-- **Framework:** `React 18` and `Vite`
-- **Styling:** `Tailwind CSS 3` (Custom configuration for "wobbly" organic shapes)
-- **Icons & Graphics:** `lucide-react`
-- **Animations:** `framer-motion` (for scroll-triggers, bounce effects, and `pathLength` SVG manipulation).
-
----
-
-## 🧰 How to Run Locally
+### Installation
 
 ```bash
-# Clone the repository
 git clone https://github.com/aayusharyaiam/portfolio-main-aayusharya.git
 cd portfolio-main-aayusharya
-
-# Install frontend dependencies
 npm install
-
-# Start the Vite development server
-npm run dev
-
-# Build for production
-npm run build
 ```
+
+### Development
+
+```bash
+npm run dev
+```
+
+Vite will print the local URL in the terminal, usually `http://localhost:5173`.
+
+### Other scripts
+
+```bash
+npm run build       # Production build
+npm run build:dev   # Development-mode build
+npm run preview     # Preview the production build locally
+npm run lint        # Run ESLint
+```
+
+## Project Structure
+
+```text
+src/
+  components/       Page sections and reusable UI components
+  components/ui/    Radix-based interface primitives
+  pages/            Routed page components
+  assets/           Resume and other local assets
+  App.tsx           Providers and application routes
+  index.css         Global styles and Tailwind layers
+```
+
+The application currently exposes the portfolio at `/` and a fallback `NotFound` page for unknown routes.
+
+## Contact Form
+
+The form in `src/components/Contact.tsx` posts directly to FormSubmit using the configured portfolio email address. When changing the recipient, update the form action and verify the new address with FormSubmit before deploying.
+
+## Links
+
+- [GitHub](https://github.com/aayusharyaiam)
+- [LinkedIn](https://www.linkedin.com/in/aayusharyaiam/)
+- [LeetCode](https://leetcode.com/u/aayusharya_i_am/)
