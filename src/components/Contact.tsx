@@ -45,7 +45,7 @@ export const Contact = () => {
               <div className="space-y-6">
                 <motion.a 
                   whileHover={{ x: 5 }}
-                  href="mailto:aayush10738@gmail.com" 
+                  href="mailto:connect@aayusharya.tech" 
                   className="flex items-center gap-4 group"
                 >
                   <div className="w-10 h-10 flex items-center justify-center border-2 border-pencil bg-paper-muted rounded-full group-hover:bg-marker-red group-hover:text-white transition-colors">
@@ -53,7 +53,7 @@ export const Contact = () => {
                   </div>
                   <div>
                     <p className="font-hand font-bold text-pencil/60 text-sm">Email Me</p>
-                    <p className="font-kalam font-bold text-lg text-pencil">aayush10738@gmail.com</p>
+                    <p className="font-kalam font-bold text-lg text-pencil">connect@aayusharya.tech</p>
                   </div>
                 </motion.a>
 
@@ -97,7 +97,7 @@ export const Contact = () => {
             <div className="wobbly-card-alt bg-white h-full relative">
               {/* Formsubmit.co integration */}
               <form 
-                action="https://formsubmit.co/aayush10738@gmail.com" 
+                action="https://formsubmit.co/connect@aayusharya.tech" 
                 method="POST" 
                 className="space-y-6"
               >

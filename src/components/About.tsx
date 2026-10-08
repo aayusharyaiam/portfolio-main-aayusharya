@@ -78,7 +78,7 @@ export const About = () => {
                 >
                   <Mail className="h-4 w-4 text-pencil" strokeWidth={2.5} />
                 </div>
-                <span className="font-hand md:text-lg text-pencil/80">aayush10738@gmail.com</span>
+                <span className="font-hand md:text-lg text-pencil/80">connect@aayusharya.tech</span>
               </div>
               <div className="flex items-center gap-3">
                 <div
