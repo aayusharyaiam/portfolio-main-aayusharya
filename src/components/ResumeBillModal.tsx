@@ -197,7 +197,7 @@ export const ResumeBillModal = ({ isOpen, onClose, onOpenPdf }: ResumeBillModalP
                     </div>
                     <div className="flex items-center gap-1.5 text-pencil/90 font-bold">
                       <Mail className="w-3.5 h-3.5 text-marker-red flex-shrink-0" strokeWidth={2.5} />
-                      <span className="truncate">aayush10738@gmail.com</span>
+                      <span className="truncate">connect@aayusharya.tech</span>
                     </div>
                   </div>
 
