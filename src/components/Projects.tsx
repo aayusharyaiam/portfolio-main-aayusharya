@@ -1,8 +1,53 @@
-import { ExternalLink, Github, Code, Search, GraduationCap } from 'lucide-react';
+import { ExternalLink, Github, Code } from 'lucide-react';
 import { motion } from 'framer-motion';
 
+type Project = {
+  title: string;
+  description: string;
+  tags: string[];
+  role: string;
+  tagline: string;
+  category: string;
+  repo?: string;
+  live?: string;
+  preview?: string;
+  screenshots?: { src: string; label: string }[];
+};
+
 export const Projects = () => {
-  const projects = [
+  const projects: Project[] = [
+    {
+      title: "IVDC—27",
+      description: "Designed and built the official IVDC—27 international conference platform for BIT Mesra, bringing research tracks, paper submissions, important dates, speakers, committee information, and registration into one focused experience.",
+      tags: ["React", "TypeScript", "Vite", "Responsive UI"],
+      role: "Frontend Developer",
+      tagline: "International Conference Platform",
+      category: "Editorial + UX",
+      repo: "https://github.com/aayusharyaiam/IVDC-27",
+      live: "https://ivdc-27.vercel.app/",
+      screenshots: [
+        { src: "/screenshots/ivdc-27/ivdc-dashboard.png", label: "Homepage" },
+        { src: "/screenshots/ivdc-27/tracks.webp", label: "Tracks" },
+        { src: "/screenshots/ivdc-27/committee.webp", label: "Committee" },
+      ],
+    },
+    {
+      title: "Elyssia 3.0 — AIIMS Kalyani",
+      description: "Created the cinematic festival website for Elyssia 3.0 at AIIMS Kalyani, turning a multi-day programme into an expressive, discoverable experience with events, pronites, gallery archives, brochure access, and contact journeys.",
+      tags: ["Next.js", "TypeScript", "GSAP", "Framer Motion"],
+      role: "Frontend Developer",
+      tagline: "Cinematic Festival Experience",
+      category: "Motion + Storytelling",
+      repo: "https://github.com/aayusharyaiam/AIIMS-Kalyani",
+      live: "https://www.elyssia.in/",
+      preview: "https://aiims-kalyani.vercel.app/",
+      screenshots: [
+        { src: "/screenshots/aiims-kalyani/aiims-dashboard.png", label: "Homepage" },
+        { src: "/screenshots/aiims-kalyani/events.webp", label: "Events" },
+        { src: "/screenshots/aiims-kalyani/gallery.webp", label: "Gallery" },
+        { src: "/screenshots/aiims-kalyani/pronite.webp", label: "Pronites" },
+      ],
+    },
     {
       title: "Technika'26",
       description: "Official website for Technika'26 annual tech fest at BIT Mesra. Managed design and technical implementation with core team, featuring event listings, registrations, and dynamic content.",
@@ -84,7 +129,7 @@ export const Projects = () => {
 
           {projects.map((project, index) => (
             <motion.div
-              key={index}
+              key={project.title}
               initial={{ opacity: 0, rotate: index % 2 === 0 ? -15 : 15, x: index % 2 === 0 ? -50 : 50 }}
               whileInView={{ opacity: 1, rotate: index % 2 === 0 ? -1 : 2, x: 0 }}
               whileHover={{ scale: 1.02, rotate: 0 }}
@@ -118,6 +163,28 @@ export const Projects = () => {
                 {project.description}
               </p>
 
+              {project.screenshots && (
+                <div className="grid grid-cols-3 gap-2 mb-6" aria-label={`${project.title} screenshots`}>
+                  {project.screenshots.map((screenshot) => (
+                    <a
+                      key={screenshot.src}
+                      href={screenshot.src}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block overflow-hidden border-2 border-pencil/20 bg-paper-muted hover:border-marker-red transition-colors"
+                      aria-label={`Open ${project.title} ${screenshot.label} screenshot`}
+                    >
+                      <img
+                        src={screenshot.src}
+                        alt={`${project.title} ${screenshot.label} screenshot`}
+                        className="h-20 sm:h-24 w-full object-cover object-top"
+                        loading="lazy"
+                      />
+                    </a>
+                  ))}
+                </div>
+              )}
+
               {/* Technologies */}
               <div className="flex flex-wrap gap-2 mb-6">
                 {project.tags.map((tag, tagIndex) => (
@@ -145,6 +212,17 @@ export const Projects = () => {
                   >
                     <ExternalLink className="h-4 w-4 group-hover:scale-125 transition-transform" strokeWidth={2.5} />
                     Live Demo
+                  </a>
+                )}
+                {project.preview && (
+                  <a
+                    href={project.preview}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 font-hand text-marker-red hover:text-pencil transition-colors font-bold group"
+                  >
+                    <ExternalLink className="h-4 w-4 group-hover:scale-125 transition-transform" strokeWidth={2.5} />
+                    Preview
                   </a>
                 )}
                 {project.repo ? (
