@@ -11,7 +11,6 @@ type Project = {
   repo?: string;
   live?: string;
   preview?: string;
-  screenshots?: { src: string; label: string }[];
 };
 
 export const Projects = () => {
@@ -25,11 +24,6 @@ export const Projects = () => {
       category: "Editorial + UX",
       repo: "https://github.com/aayusharyaiam/IVDC-27",
       live: "https://ivdc-27.vercel.app/",
-      screenshots: [
-        { src: "/screenshots/ivdc-27/ivdc-dashboard.png", label: "Homepage" },
-        { src: "/screenshots/ivdc-27/tracks.webp", label: "Tracks" },
-        { src: "/screenshots/ivdc-27/committee.webp", label: "Committee" },
-      ],
     },
     {
       title: "Elyssia 3.0 — AIIMS Kalyani",
@@ -41,12 +35,6 @@ export const Projects = () => {
       repo: "https://github.com/aayusharyaiam/AIIMS-Kalyani",
       live: "https://www.elyssia.in/",
       preview: "https://aiims-kalyani.vercel.app/",
-      screenshots: [
-        { src: "/screenshots/aiims-kalyani/aiims-dashboard.png", label: "Homepage" },
-        { src: "/screenshots/aiims-kalyani/events.webp", label: "Events" },
-        { src: "/screenshots/aiims-kalyani/gallery.webp", label: "Gallery" },
-        { src: "/screenshots/aiims-kalyani/pronite.webp", label: "Pronites" },
-      ],
     },
     {
       title: "Technika'26",
@@ -162,28 +150,6 @@ export const Projects = () => {
               <p className="font-hand text-pencil/80 text-base md:text-lg mb-6 leading-relaxed">
                 {project.description}
               </p>
-
-              {project.screenshots && (
-                <div className="grid grid-cols-3 gap-2 mb-6" aria-label={`${project.title} screenshots`}>
-                  {project.screenshots.map((screenshot) => (
-                    <a
-                      key={screenshot.src}
-                      href={screenshot.src}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="block overflow-hidden border-2 border-pencil/20 bg-paper-muted hover:border-marker-red transition-colors"
-                      aria-label={`Open ${project.title} ${screenshot.label} screenshot`}
-                    >
-                      <img
-                        src={screenshot.src}
-                        alt={`${project.title} ${screenshot.label} screenshot`}
-                        className="h-20 sm:h-24 w-full object-cover object-top"
-                        loading="lazy"
-                      />
-                    </a>
-                  ))}
-                </div>
-              )}
 
               {/* Technologies */}
               <div className="flex flex-wrap gap-2 mb-6">
